@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# a csript that displays its PID
+
+echo $$
