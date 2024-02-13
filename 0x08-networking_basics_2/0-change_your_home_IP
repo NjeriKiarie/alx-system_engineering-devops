@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Script configures for localhost resolve to 127.0.0.2 and facebook.com resolve to 8.8.8.8
-sed -i '/^127.0.0.1[[:space:]]*localhost$/a 127.0.0.2 localhost' /etc/hosts
-sed -i '/^127.0.0.1[[:space:]]*localhost$/a 8.8.8.8 facebook.com' /etc/hosts
-echo "8.8.8.8 facebook.com" >> /etc/hosts
-cp /etc/hosts new_hosts
+cp /etc/hosts ~/hosts.new
+sed -i 's/127.0.0.1/127.0.0.2/' ~/hosts.new
+sed -i "\$a8.8.8.8 facebook.com" ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
