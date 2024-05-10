@@ -2,7 +2,7 @@
 """Returns to-do list progress information for a given employee ID.
     Using REST API
 """
-import json 
+import json
 import requests
 import sys
 

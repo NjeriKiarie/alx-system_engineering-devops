@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Exports to-do list progress information for a given employee ID to JSON format."""
+"""Exports to-do list progress information for a given employee ID to
+JSON format.
+"""
 import json
 import requests
 import sys
