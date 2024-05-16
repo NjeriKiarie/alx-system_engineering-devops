@@ -1,25 +1,37 @@
 #!/usr/bin/python3
 """Module for number_of_subscribers"""
 import requests
-
+from requests import get
 
 def number_of_subscribers(subreddit):
     """Queries the Reddit API and returns the number of subscribers
     (not active users, total subscribers) for a given subreddit
     """
-    base_url = 'https://www.reddit.com/r/'
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
 
-    url = '{}{}/about.json'.format(base_url, subreddit)
-    headers = {
-        'User-Agent':
-        'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.3) \
-        Gecko/20100401 Firefox/3.6.3 (FM Scene 4.6.1)'
-    }
-    results = requests.get(
-        url,
-        headers=headers,
-        allow_redirects=False
-    )
-    if results.status_code == 200:
-        return results.json()['data']['subscribers']
-    return 0
+    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    response = get(url, headers=user_agent)
+    results = response.json()
+
+    try:
+        return results.get('data').get('subscribers')
+
+    except Exception:
+        return 0
+    """
+    r = get("https://www.reddit.com/r/{}/about.json".format(subreddit),
+            params={"raw_json": 1},
+            headers={"User-Agent"},
+            allow_redirects=False)
+
+    try:
+        r.raise_for_status()
+    except:
+        return 0
+    else:
+        num_subscribers = r.json().get('data').get('subscribers')
+        if num_subscribers is None:
+            return 0
+        return num_subscribers"""

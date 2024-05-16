@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#Configure web-02 to be identical to web-01.
+#Add a custom Nginx response header to be able to rack which webswerver is answering the HTTPs requests.shouldd containd a custom header(on web-01 and web-02)
+#the name of the custom HTTP header must be X-Served-By
+#the value of the custom HTTP header must be a host name of the server Nginx is running on
+#ignore SC2154
+
+# install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+sudo mkdir /etc/nginx/html
+sudo touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+sudo touch /etc/nginx/html/404.html
+
+printf %s "server {
+	listen 80;
+	listen [::]:80 default_server;
+	tadd_header X-Served-By $HOSTNAME;
+	root	/etc/nginx/html;
+	index	index.html index.htm;
+	}" > /etc/nginx/sites-avalable/default
+
+sudo services nginx restart
