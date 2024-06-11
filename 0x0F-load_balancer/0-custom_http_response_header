@@ -9,17 +9,8 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-sudo mkdir /etc/nginx/html
-sudo touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-sudo touch /etc/nginx/html/404.html
-
-printf %s "server {
-	listen 80;
-	listen [::]:80 default_server;
-	tadd_header X-Served-By $HOSTNAME;
-	root	/etc/nginx/html;
-	index	index.html index.htm;
-	}" > /etc/nginx/sites-avalable/default
-
-sudo services nginx restart
+ufw allow 'Nginx HTTP'
+echo 'Holberton School' > /var/www/html/index.nginx-debian.html
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server;/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+service nginx start
