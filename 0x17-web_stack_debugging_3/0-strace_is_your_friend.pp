@@ -1,4 +1,4 @@
-#Using strace  and then using Puppet to automate fix for 500 error on Apache
+#Using strace  and then using Puppet to automate fix for 500 error on Apache.
 
 exec { 'fix_typo':
   path     => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
