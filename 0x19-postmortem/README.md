@@ -1,10 +1,10 @@
 #0. My first postmortem
 
-#Postmortem: Website Outage on May 15, 2024
+#Postmortem: Website Outage on August 17, 2024
 ##Issue Summary
 ###Duration of the Outage:
-**Start:** May 15, 2024, 09:00 AM UTC
-**End:** May 15, 2024, 10:30 AM UTC
+**Start:** August 17, 2024, 09:00 AM UTC
+**End:** August 17, 2024, 10:30 AM UTC
 
 ###Impact:
 Our main e-commerce website was completely inaccessible during the outage. Users attempting to access the site were met with a "503 Service Unavailable" error. Approximately 85% of our users were affected, resulting in significant revenue loss and a high volume of customer complaints.
@@ -55,14 +55,14 @@ By implementing these corrective and preventative measures, we aim to prevent si
 
 Task 1. Make people want to read your postmortem
 
-#Postmortem: Website Outage on May 15, 2024
+#Postmortem: Website Outage on August 17, 2024
 ##Issue Summary
 
 Sometimes it feels like the servers have a mind of their own!
 
 ###Duration of the Outage:
-**Start:** May 15, 2024, 09:00 AM UTC
-**End:** May 15, 2024, 10:30 AM UTC
+**Start:** August 17, 2024, 09:00 AM UTC
+**End:** August 17, 2024, 10:30 AM UTC
 
 ###Impact:
 Our main e-commerce website was completely inaccessible, showing users a "503 Service Unavailable" error. Approximately 85% of users were affected, leading to significant revenue loss and a surge in customer complaints. This might explain why our support team now has 20 new voicemails, all featuring the word "urgent."
